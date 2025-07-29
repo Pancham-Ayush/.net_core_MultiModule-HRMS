@@ -1,4 +1,4 @@
-using Employee_.Data;
+using HR_.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
