@@ -1,0 +1,45 @@
+﻿@model HR_.Models.Employee
+<h2>Add Employee</h2>
+<form asp-action="create_emp" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" type="email" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone">Phone:</label>
+        <input asp-for="Phone" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="DOB">Date of Birth:</label>
+        <input asp-for="DOB" type="date" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="Salary">Salary:</label>
+        <input asp-for="Salary" type="number" step="0.01" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="Department_id">Department:</label>
+        <select asp-for="Department_id" class="form-control" asp-items="@(new SelectList(ViewBag.Departments, "Id", "Name"))">
+            <option value="">-- Select Department --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Hr_id">HR:</label>
+        <select asp-for="Hr_id" class="form-control" asp-items="@(new SelectList(ViewBag.Hrs, "Id", "Name"))">
+            <option value="">-- Select HR --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Senior_id">Senior:</label>
+        <select asp-for="Senior_id" class="form-control" asp-items="@(new SelectList(ViewBag.Seniors, "Id", "Name"))">
+            <option value="">-- Select Senior --</option>
+        </select>
+    </div>
+    <label>Enter Skill Set (comma-separated):</label>
+    <input type="text" name="skillset" class="form-control" placeholder="e.g. Java, C#, SQL" />
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
